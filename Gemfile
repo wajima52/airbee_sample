@@ -56,3 +56,9 @@ gem 'devise-bootstrap-views'
 gem 'devise-i18n'
 
 gem 'bootstrap'
+
+gem 'pry-byebug', group: :development
+
+group :production do
+  gem 'pg'
+end

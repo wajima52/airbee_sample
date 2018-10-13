@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
   database: airbee_production
   username: airbee
   password: <%= ENV['AIRBEE_DATABASE_PASSWORD'] %>

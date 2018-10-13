@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_room
+
   def create
     @reservation = current_user.reservations.new(reservation_params.merge(room: @room))
     if @reservation.save
@@ -8,6 +9,7 @@ class ReservationsController < ApplicationController
       redirect_to room_path(@room), alert: @reservation.errors.full_messages.first
     end
   end
+
   private
   def reservation_params
     params.require(:reservation).permit(:start_date, :finish_date)

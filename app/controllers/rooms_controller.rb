@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_room, only: [:'show.html.erb', :edit, :update, :destroy]
+  before_action :set_room, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -15,6 +15,7 @@ class RoomsController < ApplicationController
 
   def create
     @room = current_user.rooms.new(room_params)
+
     if @room.save
       redirect_to room_path(@room)
     else
@@ -23,7 +24,6 @@ class RoomsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
