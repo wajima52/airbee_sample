@@ -1,0 +1,66 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+@import "./normalize";
+@import "_header";
+.formWrapper{
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  border: 1px solid rgb(228, 228, 228);
+  padding: 2rem;
+  width: 400px;
+  &__field {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 1rem;
+      box-sizing: border-box;
+      border: 1px solid rgb(228, 228, 228);
+      border-radius: 0.3rem;
+      &:focus {
+        outline: none;
+      }
+    }
+    input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+  }
+  &__actions {
+    input {
+      width: 100%;
+      background-color: #ff5a5f;
+      color: white;
+      border-color: #ff5a5f;
+      padding: 1rem 0;
+      border-radius: 0.3rem;
+    }
+  }
+  &__sharedLinks {
+    margin-top: 1rem;
+    a {
+      color: black;
+      margin-bottom: .5rem;
+      display: block;
+    }
+  }
+}
