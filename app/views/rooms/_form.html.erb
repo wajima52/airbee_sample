@@ -1,0 +1,59 @@
+
+<% if @room.errors.any? %>
+  <ul>
+    <% @room.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<div class="roomFormWrapper">
+  <div class="roomForm">
+    <h2>部屋を掲載する</h2>
+    <%= form_for @room do |f| %>
+      <div class="roomForm__field">
+        <%= f.label :title %>
+        <%= f.text_field :title, autofocus: true, class: 'roomForm__field__textInput' %>
+      </div>
+      <div class="roomForm__field">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'roomForm__field__textInput' %>
+      </div>
+
+      <div class="roomForm__field">
+        <%= f.label :image %>
+        <%= f.file_field :image, class: 'roomForm__field__textInput' %>
+      </div>
+      <div class="roomForm__field">
+        <%= f.label :home_type %>
+        <%= f.select :home_type, Room::HOME_TYPE.map.with_index{ |type, i| [type, i] }, {}, class: 'roomForm__field__select' %>
+      </div>
+      <div class="roomForm__field">
+        <%= f.label :room_type %>
+        <%= f.select :room_type, Room::ROOM_TYPE.map.with_index{ |type, i| [type, i] }, {}, class: 'roomForm__field__select' %>
+      </div>
+      <div class="roomForm__field">
+        <%= f.label :accommodate %>
+        <%= f.number_field :accommodate, class: 'roomForm__field__textInput' %>
+      </div>
+      <div class="roomForm__field">
+        <%= f.label :bedroom_number %>
+        <%= f.number_field :bedroom_number, class: 'roomForm__field__textInput' %>
+      </div>
+      <div class="roomForm__field">
+        <%= f.label :bathroom_number %>
+        <%= f.number_field :bathroom_number, class: 'roomForm__field__textInput' %>
+      </div>
+      <div class="roomForm__field">
+        <%= f.label :price %>
+        <%= f.number_field :price, class: 'roomForm__field__textInput' %>
+      </div>
+      <div class="roomForm__field">
+        <%= f.label :location %>
+        <%= f.text_field :location, class: 'roomForm__field__textInput', autocomplete: 'street-address' %>
+      </div>
+      <div class="roomForm__actions">
+        <%= f.submit "投稿する" %>
+      </div>
+    <% end %>
+  </div>
+</div>

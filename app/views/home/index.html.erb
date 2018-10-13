@@ -1,2 +1,16 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+<div class="rooms container">
+  <% Room.all.each do |room| %>
+    <div class="room">
+      <%= link_to room_path(room) do %>
+          <div class="room__heading">
+            <%= image_tag room.image if room.image.attached? %>
+          </div>
+        <h2 class="room__title"><%= room.title %></h2>
+        <p class="room__info">
+          $<%= room.price %>/泊 - <%= Room::HOME_TYPE[room.home_type] %> - <%= Room::ROOM_TYPE[room.room_type] %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

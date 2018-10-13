@@ -1,0 +1,39 @@
+
+<div class="container roomSingle">
+  <% if @room.image.attached? %>
+    <div class="roomSingle__header">
+      <%= image_tag @room.image %>
+    </div>
+  <% end %>
+  <div class="roomSingle__inner">
+    <div class="roomSingle__info">
+      <h2 class="roomSingle__info__title"><%= @room.title %></h2>
+      <ul class="roomSingle__info__amenities">
+        <li><%= Room::HOME_TYPE[@room.home_type] %></li>
+        <li><%= Room::ROOM_TYPE[@room.room_type] %></li>
+        <li>ゲスト最大<%= @room.accommodate %>人まで</li>
+        <li>ベッド<%= @room.bedroom_number %>台</li>
+        <li>バスルーム<%= @room.bathroom_number %>箇所</li>
+      </ul>
+      <p class="roomSingle__info__description"><%= @room.description %></p>
+    </div>
+    <div class="roomSingle__reservation">
+      <p class="roomSingle__reservation__price">$<%= @room.price %>/1泊</p>
+      <div class="roomForm reservationForm">
+        <%= form_for [@room, @reservation] do |f| %>
+          <div class="roomForm__field">
+            <%= f.label :start_date %>
+            <%= f.date_field :start_date, autofocus: true, class: 'roomForm__field__textInput' %>
+          </div>
+          <div class="roomForm__field">
+            <%= f.label :finish_date %>
+            <%= f.date_field :finish_date, class: 'roomForm__field__textInput' %>
+          </div>
+          <div class="roomForm__actions">
+            <%= f.submit "予約する" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

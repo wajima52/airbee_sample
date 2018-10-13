@@ -1,6 +1,8 @@
 
 <header class="header">
-  <h1 class="header__logo">airbee</h1>
+  <h1 class="header__logo">
+    <a href="/">airbee</a>
+  </h1>
   <ul class="header__menu">
     <% if user_signed_in? %>
       <li class="header__memu__item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
