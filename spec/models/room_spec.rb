@@ -64,9 +64,9 @@ RSpec.describe Room do
     #   expect(room.valid?).to eq(false)
     # end
 
-    it '入力必須項目のいずれかがからの時、保存しない' do
+    it '入力必須項目のいずれかが空の時、保存しない' do
       @presence_true_params.each do |presence_true_param|
-        @rooms_param[presence_true_param] = nil
+        @rooms_param[presence_true_param] = ''
         room = @user.rooms.create(@rooms_param)
         expect(room.valid?).to eq(false)
       end
