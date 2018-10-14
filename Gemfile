@@ -62,3 +62,9 @@ gem 'pry-byebug', group: :development
 group :production do
   gem 'pg'
 end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot_rails'
+end
+
