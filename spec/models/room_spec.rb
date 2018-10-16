@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Room do
+describe Room do
   before do
     @user = FactoryBot.create(:user)
     @rooms_param = {
@@ -46,24 +46,6 @@ RSpec.describe Room do
                                :location]
     end
 
-    # it 'home_typeが空の時、保存しない' do
-    #   @rooms_param[:home_type] = ''
-    #   room = @user.rooms.create(@rooms_param)
-    #   expect(room.valid?).to eq(false)
-    # end
-    #
-    # it 'room_typeが空の時、保存しない' do
-    #   @rooms_param[:room_type] = ''
-    #   room = @user.rooms.create(@rooms_param)
-    #   expect(room.valid?).to eq(false)
-    # end
-    #
-    # it 'accommodateが空の時、保存しない' do
-    #   @rooms_param[:accommodate] = ''
-    #   room = @user.rooms.create(@rooms_param)
-    #   expect(room.valid?).to eq(false)
-    # end
-
     it '入力必須項目のいずれかが空の時、保存しない' do
       @presence_true_params.each do |presence_true_param|
         @rooms_param[presence_true_param] = ''
@@ -72,9 +54,5 @@ RSpec.describe Room do
       end
     end
   end
-
-
-
-
-
+  
 end
