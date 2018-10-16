@@ -6,8 +6,12 @@ describe 'Routes' do
   #   @user = FactoryBot.create(:user)
   # end
 
-  describe "LoomController" do
+  describe RoomsController do
 
+    it '未ログイン時はリダイレクト' do
+      get '/rooms'
+      expect(response).to have_http_status(302)
+    end
 
     it 'rooms#index' do
       expect(get: '/rooms').to route_to(
